@@ -13,6 +13,7 @@
         <module>kudu</module>
         <module>hadoop</module>
         <module>util</module>
+        <module>java</module>
     </modules>
 
     <properties>
