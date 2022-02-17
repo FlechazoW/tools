@@ -8,7 +8,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 public class _01_Main_2 {
     public static void main(String[] args) throws InterruptedException {
-        final long count = 10000 * 100000L;
+        final long count = 450 * 10000L;
 
         test1(count);// 975
         test2(count);//1756

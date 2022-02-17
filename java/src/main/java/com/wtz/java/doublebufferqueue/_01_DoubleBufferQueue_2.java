@@ -11,8 +11,8 @@ public class _01_DoubleBufferQueue_2<T> {
 
     private volatile boolean direction = true;
 
-    private List<T> listOne = new LinkedList<>();
-    private List<T> listTwo = new LinkedList<>();
+    private final List<T> listOne = new LinkedList<>();
+    private final List<T> listTwo = new LinkedList<>();
 
     private final Object readLock = new Object();
     private final Object writeLock = new Object();

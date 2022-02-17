@@ -13,7 +13,8 @@ public class _01_Main {
     public static void main(String[] args) throws Exception {
         long[] arrays = new long[]{10000, 10000 * 10, 10000 * 100, 10000 * 1000, 10000 * 10000};
         for (long count : arrays) {
-            testQueue(new _01_DoubleBufferQueue<>(), count);
+            testQueue(new _01_DoubleBufferQueue<>(false), count);
+            testQueue(new _01_DoubleBufferQueue<>(true), count);
             testQueue(new ArrayBlockingQueue<>((int) count), count);
             testQueue(new LinkedBlockingQueue<>(), count);
             testQueue(new LinkedBlockingDeque<>(), count);

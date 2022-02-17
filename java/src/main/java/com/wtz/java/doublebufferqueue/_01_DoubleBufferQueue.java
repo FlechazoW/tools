@@ -18,11 +18,20 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class _01_DoubleBufferQueue<T> extends AbstractQueue<T> implements Queue<T> {
 
-    private final Lock readLock = new ReentrantLock();
-    private final Lock writeLock = new ReentrantLock();
+    private Lock readLock = new ReentrantLock();
+    private Lock writeLock = new ReentrantLock();
 
     private LinkedList<T> readQueue = new LinkedList<>();
     private LinkedList<T> writeQueue = new LinkedList<>();
+
+    public _01_DoubleBufferQueue() {
+    }
+
+    public _01_DoubleBufferQueue(boolean fair) {
+        readLock = new ReentrantLock(fair);
+        writeLock = new ReentrantLock(fair);
+    }
+
 
     @Override
     public Iterator<T> iterator() {
