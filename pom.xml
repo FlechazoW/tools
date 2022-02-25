@@ -13,6 +13,7 @@
         <module>kudu</module>
         <module>hadoop</module>
         <module>java</module>
+        <module>flink</module>
     </modules>
 
     <properties>
