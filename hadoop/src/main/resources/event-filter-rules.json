@@ -1,0 +1,10 @@
+{
+  "version": "0",
+  "rules": [
+    {"alert": false, "rate": 1, "periodminutes": 1, "threshold":"FATAL"},
+    {"alert": false, "rate": 0, "threshold":"WARN", "content": ".* is deprecated. Instead, use .*"},
+    {"alert": false, "rate": 0, "threshold":"WARN", "content": ".* is deprecated. Use .* instead"},
+    {"alert": false, "rate": 1, "periodminutes": 2, "exceptiontype": ".*"},
+    {"alert": false, "rate": 1, "periodminutes": 1, "threshold":"WARN"}
+  ]
+}

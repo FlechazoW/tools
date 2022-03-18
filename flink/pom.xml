@@ -16,23 +16,31 @@
         <maven.compiler.target>8</maven.compiler.target>
         <flink.version>1.12.7</flink.version>
         <scala.binary.version>2.11</scala.binary.version>
+        <flink.cdc.version>1.4.0</flink.cdc.version>
     </properties>
 
     <dependencies>
 
-        <!--        datastream相关依赖-->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-java</artifactId>
             <version>${flink.version}</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-streaming-java_${scala.binary.version}</artifactId>
             <version>${flink.version}</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-api-java-bridge_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
         <!--        rocksdb相关依赖-->
         <dependency>
             <groupId>org.apache.flink</groupId>
@@ -41,6 +49,18 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba.ververica</groupId>
+            <artifactId>flink-connector-mysql-cdc</artifactId>
+            <version>${flink.cdc.version}</version>
+        </dependency>
+
+        <!-- mysql Dependency -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.21</version>
+        </dependency>
 
         <dependency>
             <groupId>org.apache.flink</groupId>
@@ -68,6 +88,34 @@
             <artifactId>flink-clients_${scala.binary.version}</artifactId>
             <version>${flink.version}</version>
         </dependency>
+
+        <!-- 日志 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.44</version>
+        </dependency>
+
+        <!-- hadoop Dependency -->
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-shaded-hadoop-2-uber</artifactId>
+            <version>2.8.3-10.0</version>
+        </dependency>
+
     </dependencies>
 
 

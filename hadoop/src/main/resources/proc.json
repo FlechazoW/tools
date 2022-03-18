@@ -1,0 +1,427 @@
+{
+  "refresh_files": [
+    "cloudera-stack-monitor.properties",
+    "topology.map"
+  ],
+  "config_generation": 0,
+  "auto_restart": true,
+  "expected_exitcodes": [],
+  "running": false,
+  "required_tags": [
+    "cdh"
+  ],
+  "one_off": false,
+  "special_file_info": [
+    {
+      "permissions": 420,
+      "deploy_dir": "/etc/hadoop/conf.cloudera.yarn",
+      "group": "hadoop",
+      "name": "topology.map",
+      "user": "root"
+    },
+    {
+      "permissions": 493,
+      "deploy_dir": "/etc/hadoop/conf.cloudera.yarn",
+      "group": "hadoop",
+      "name": "topology.py",
+      "user": "root"
+    },
+    {
+      "permissions": 256,
+      "deploy_dir": "/var/lib/yarn-ce/etc/hadoop",
+      "group": "hadoop",
+      "name": "container-executor.cfg",
+      "user": "root"
+    },
+    {
+      "permissions": 3112,
+      "deploy_dir": "/var/lib/yarn-ce/bin",
+      "group": "yarn",
+      "name": "$CDH_YARN_HOME/bin/container-executor",
+      "user": "root"
+    }
+  ],
+  "group": "hadoop",
+  "id": 487,
+  "start_retries": 3,
+  "status_links": {
+    "status": "https://lt-cdp-node1:8044/"
+  },
+  "name": "yarn-NODEMANAGER",
+  "extra_groups": [],
+  "run_generation": 2,
+  "start_timeout_seconds": 20,
+  "environment": {
+    "IS_KERBERIZED": "true",
+    "YARN_NODEMANAGER_OPTS": "-Xms1073741824 -Xmx1073741824 {{JAVA_GC_ARGS}} -Dlibrary.leveldbjni.path={{CMF_CONF_DIR}} -Dhadoop.event.appender=,EventCatcher -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/yarn_yarn-NODEMANAGER-04bdfd07893754493f46020994940cdd_pid{{PID}}.hprof -XX:OnOutOfMemoryError={{AGENT_COMMON_DIR}}/killparent.sh",
+    "CDH_VERSION": "7",
+    "NM_LOCAL_DIRS": "/mnt/data1/yarn/nm",
+    "LLAP_KEYTAB_LINK_PATH": "/var/lib/hadoop-yarn/hive.keytab",
+    "YARN_LOGFILE": "hadoop-cmf-yarn-NODEMANAGER-lt-cdp-node1.log.out",
+    "YARN_LOG_DIR": "/var/log/hadoop-yarn",
+    "HADOOP_CREDSTORE_PASSWORD": "czyrh0zrxgpwgexl76jmt1qwv",
+    "HADOOP_CLIENT_CONF_DIR": "/etc/hadoop/conf.cloudera.yarn",
+    "YARN_ROOT_LOGGER": "INFO,RFA"
+  },
+  "optional_tags": [
+    "hdfs-client-plugin",
+    "cdh-plugin",
+    "yarn-plugin",
+    "mapreduce2-plugin"
+  ],
+  "program": "yarn/yarn.sh",
+  "arguments": [
+    "nodemanager"
+  ],
+  "parcels": {
+    "CDH": "7.1.3-1.cdh7.1.3.p0.4992530"
+  },
+  "resources": [
+    {
+      "io": null,
+      "named_cpu": null,
+      "tcp_listen": null,
+      "dynamic": false,
+      "custom_resource": null,
+      "rlimits": {
+        "limit_memlock": null,
+        "limit_fds": null
+      },
+      "install": null,
+      "file": null,
+      "memory": null,
+      "directory": null,
+      "named_resource": null,
+      "cpu": null,
+      "contents": null
+    },
+    {
+      "io": null,
+      "named_cpu": null,
+      "tcp_listen": null,
+      "dynamic": false,
+      "custom_resource": null,
+      "rlimits": null,
+      "install": {
+        "source": "{{CMF_CONF_DIR}}/cm-auto-global_cacerts.pem",
+        "mode": 292,
+        "group": "hadoop",
+        "user": "yarn",
+        "path": "{{CMF_CONF_DIR}}/cm-auto-global_cacerts.pem"
+      },
+      "file": null,
+      "memory": null,
+      "directory": null,
+      "named_resource": null,
+      "cpu": null,
+      "contents": null
+    },
+    {
+      "io": null,
+      "named_cpu": null,
+      "tcp_listen": null,
+      "dynamic": false,
+      "custom_resource": null,
+      "rlimits": null,
+      "install": {
+        "source": "{{CMF_CONF_DIR}}/cm-auto-host_cert_chain.pem",
+        "mode": 292,
+        "group": "hadoop",
+        "user": "yarn",
+        "path": "{{CMF_CONF_DIR}}/cm-auto-host_cert_chain.pem"
+      },
+      "file": null,
+      "memory": null,
+      "directory": null,
+      "named_resource": null,
+      "cpu": null,
+      "contents": null
+    },
+    {
+      "io": null,
+      "named_cpu": null,
+      "tcp_listen": null,
+      "dynamic": false,
+      "custom_resource": null,
+      "rlimits": null,
+      "install": {
+        "source": "{{CMF_CONF_DIR}}/cm-auto-host_key.pem",
+        "mode": 256,
+        "group": "hadoop",
+        "user": "yarn",
+        "path": "{{CMF_CONF_DIR}}/cm-auto-host_key.pem"
+      },
+      "file": null,
+      "memory": null,
+      "directory": null,
+      "named_resource": null,
+      "cpu": null,
+      "contents": null
+    },
+    {
+      "io": null,
+      "named_cpu": null,
+      "tcp_listen": null,
+      "dynamic": false,
+      "custom_resource": null,
+      "rlimits": null,
+      "install": {
+        "source": "{{CMF_CONF_DIR}}/cm-auto-host_key.pw",
+        "mode": 256,
+        "group": "hadoop",
+        "user": "yarn",
+        "path": "{{CMF_CONF_DIR}}/cm-auto-host_key.pw"
+      },
+      "file": null,
+      "memory": null,
+      "directory": null,
+      "named_resource": null,
+      "cpu": null,
+      "contents": null
+    },
+    {
+      "io": null,
+      "named_cpu": null,
+      "tcp_listen": null,
+      "dynamic": false,
+      "custom_resource": null,
+      "rlimits": null,
+      "install": {
+        "source": "{{CMF_CONF_DIR}}/cm-auto-host_keystore.jks",
+        "mode": 256,
+        "group": "hadoop",
+        "user": "yarn",
+        "path": "{{CMF_CONF_DIR}}/cm-auto-host_keystore.jks"
+      },
+      "file": null,
+      "memory": null,
+      "directory": null,
+      "named_resource": null,
+      "cpu": null,
+      "contents": null
+    },
+    {
+      "io": null,
+      "named_cpu": null,
+      "tcp_listen": null,
+      "dynamic": false,
+      "custom_resource": null,
+      "rlimits": null,
+      "install": {
+        "source": "{{CMF_CONF_DIR}}/cm-auto-global_truststore.jks",
+        "mode": 292,
+        "group": "hadoop",
+        "user": "yarn",
+        "path": "{{CMF_CONF_DIR}}/cm-auto-global_truststore.jks"
+      },
+      "file": null,
+      "memory": null,
+      "directory": null,
+      "named_resource": null,
+      "cpu": null,
+      "contents": null
+    },
+    {
+      "io": null,
+      "named_cpu": null,
+      "tcp_listen": null,
+      "dynamic": false,
+      "custom_resource": null,
+      "rlimits": null,
+      "install": {
+        "source": "{{CMF_CONF_DIR}}/cm-auto-in_cluster_ca_cert.pem",
+        "mode": 292,
+        "group": "hadoop",
+        "user": "yarn",
+        "path": "{{CMF_CONF_DIR}}/cm-auto-in_cluster_ca_cert.pem"
+      },
+      "file": null,
+      "memory": null,
+      "directory": null,
+      "named_resource": null,
+      "cpu": null,
+      "contents": null
+    },
+    {
+      "io": null,
+      "named_cpu": null,
+      "tcp_listen": null,
+      "dynamic": false,
+      "custom_resource": null,
+      "rlimits": null,
+      "install": {
+        "source": "{{CMF_CONF_DIR}}/cm-auto-in_cluster_truststore.jks",
+        "mode": 292,
+        "group": "hadoop",
+        "user": "yarn",
+        "path": "{{CMF_CONF_DIR}}/cm-auto-in_cluster_truststore.jks"
+      },
+      "file": null,
+      "memory": null,
+      "directory": null,
+      "named_resource": null,
+      "cpu": null,
+      "contents": null
+    },
+    {
+      "io": null,
+      "named_cpu": null,
+      "tcp_listen": {
+        "bind_address": "0.0.0.0",
+        "port": 8044
+      },
+      "dynamic": false,
+      "custom_resource": null,
+      "rlimits": null,
+      "install": null,
+      "file": null,
+      "memory": null,
+      "directory": null,
+      "named_resource": null,
+      "cpu": null,
+      "contents": null
+    },
+    {
+      "io": null,
+      "named_cpu": null,
+      "tcp_listen": null,
+      "dynamic": false,
+      "custom_resource": null,
+      "rlimits": null,
+      "install": null,
+      "file": null,
+      "memory": null,
+      "directory": {
+        "path": "/mnt/data1/yarn/nm",
+        "bytes_free_warning_threshhold_bytes": 0,
+        "group": "hadoop",
+        "user": "yarn",
+        "mode": 493
+      },
+      "named_resource": null,
+      "cpu": null,
+      "contents": null
+    },
+    {
+      "io": null,
+      "named_cpu": null,
+      "tcp_listen": null,
+      "dynamic": false,
+      "custom_resource": null,
+      "rlimits": null,
+      "install": null,
+      "file": null,
+      "memory": null,
+      "directory": {
+        "path": "/mnt/data1/yarn/container-logs",
+        "bytes_free_warning_threshhold_bytes": 0,
+        "group": "hadoop",
+        "user": "yarn",
+        "mode": 493
+      },
+      "named_resource": null,
+      "cpu": null,
+      "contents": null
+    },
+    {
+      "io": null,
+      "named_cpu": null,
+      "tcp_listen": null,
+      "dynamic": false,
+      "custom_resource": null,
+      "rlimits": null,
+      "install": null,
+      "file": null,
+      "memory": null,
+      "directory": {
+        "path": "/var/lib/hadoop-yarn/yarn-nm-recovery",
+        "bytes_free_warning_threshhold_bytes": 0,
+        "group": "hadoop",
+        "user": "yarn",
+        "mode": 493
+      },
+      "named_resource": null,
+      "cpu": null,
+      "contents": null
+    },
+    {
+      "io": null,
+      "named_cpu": null,
+      "tcp_listen": {
+        "bind_address": "0.0.0.0",
+        "port": 8041
+      },
+      "dynamic": false,
+      "custom_resource": null,
+      "rlimits": null,
+      "install": null,
+      "file": null,
+      "memory": null,
+      "directory": null,
+      "named_resource": null,
+      "cpu": null,
+      "contents": null
+    },
+    {
+      "io": null,
+      "named_cpu": null,
+      "tcp_listen": null,
+      "dynamic": false,
+      "custom_resource": null,
+      "rlimits": null,
+      "install": null,
+      "file": null,
+      "memory": null,
+      "directory": {
+        "path": "/var/log/hadoop-yarn",
+        "bytes_free_warning_threshhold_bytes": 0,
+        "group": "hadoop",
+        "user": "yarn",
+        "mode": 509
+      },
+      "named_resource": null,
+      "cpu": null,
+      "contents": null
+    },
+    {
+      "io": null,
+      "named_cpu": null,
+      "tcp_listen": {
+        "bind_address": "0.0.0.0",
+        "port": 8040
+      },
+      "dynamic": false,
+      "custom_resource": null,
+      "rlimits": null,
+      "install": null,
+      "file": null,
+      "memory": null,
+      "directory": null,
+      "named_resource": null,
+      "cpu": null,
+      "contents": null
+    },
+    {
+      "io": null,
+      "named_cpu": null,
+      "tcp_listen": null,
+      "dynamic": true,
+      "custom_resource": null,
+      "rlimits": null,
+      "install": null,
+      "file": null,
+      "memory": null,
+      "directory": {
+        "path": "/var/log/hadoop-yarn/jstacks",
+        "bytes_free_warning_threshhold_bytes": 0,
+        "group": "hadoop",
+        "user": "yarn",
+        "mode": 493
+      },
+      "named_resource": null,
+      "cpu": null,
+      "contents": null
+    }
+  ],
+  "user": "yarn"
+}

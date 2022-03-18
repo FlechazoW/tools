@@ -36,7 +36,6 @@ public class _01_SSLFactory {
 
     public static void main(String[] args) throws GeneralSecurityException, IOException {
         Configuration conf = new Configuration();
-
         SSLFactory sslFactory = new SSLFactory(SSLFactory.Mode.CLIENT, conf);
 
         sslFactory.init();

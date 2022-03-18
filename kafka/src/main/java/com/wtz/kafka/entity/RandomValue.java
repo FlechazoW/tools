@@ -50,7 +50,9 @@ public class RandomValue {
         return sb.toString();
     }
 
-    /** 返回手机号码 */
+    /**
+     * 返回手机号码
+     */
     private static String[] telFirst =
             "134,135,136,137,138,139,150,151,152,157,158,159,130,131,132,155,156,133,153"
                     .split(",");
@@ -63,7 +65,9 @@ public class RandomValue {
         return first + second + third;
     }
 
-    /** 返回中文姓名 */
+    /**
+     * 返回中文姓名
+     */
     private static String name_sex = "";
 
     public static String getChineseName() {
@@ -123,7 +127,7 @@ public class RandomValue {
         Timestamp timestamp = new Timestamp(currentTimeMillis);
         JSONObject result = new JSONObject();
         JSONObject data = new JSONObject();
-        result.put("id", i + "aa");
+        result.put("id", i);
         result.put("name", "[" + RandomValue.getChineseName() + "]");
         result.put("message", "this is a test message from: " + RandomValue.getChineseName());
         result.put("age", RandomValue.getNum(10, 70));
