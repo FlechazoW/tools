@@ -1,0 +1,23 @@
+{
+  "sftpConf": {
+    "maxWaitMillis": "999999",
+    "minIdle": "000000",
+    "auth": "1",
+    "isUsePool": "true",
+    "timeout": "0",
+    "path": "/tiezhu",
+    "password": "66666666",
+    "maxIdle": "16",
+    "port": "22",
+    "maxTotal": "16",
+    "host": "6666666",
+    "fileTimeout": "300000",
+    "username": "root"
+  },
+  "principal": "tiezhu/tiezhu@DTSTACK.COM",
+  "principalFile": "tiezhu.keytab",
+  "proxy": {
+    "username": "root",
+    "password": "password"
+  }
+}

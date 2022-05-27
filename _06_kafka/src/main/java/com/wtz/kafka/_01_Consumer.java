@@ -24,7 +24,7 @@ import java.util.Properties;
  */
 public class _01_Consumer {
 
-    private static final String BROKER_LIST = "kudu1:9092";
+    private static final String BROKER_LIST = "flink01:9092,flink02:9092,flink03:9092";
 
     private static final String GROUP_ID = "*";
 

@@ -9,17 +9,29 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>kafka</module>
-        <module>kudu</module>
-        <module>hadoop</module>
-        <module>java</module>
-        <module>flink</module>
-        <module>flink1_10</module>
+        <module>_01_flink</module>
+        <module>_02_flink1_10</module>
+        <module>_03_hadoop</module>
+        <module>_04_jackson</module>
+        <module>_05_java</module>
+        <module>_06_kafka</module>
+        <module>_07_kudu</module>
+        <module>_08_vertx_4</module>
+        <module>_09_jdbc</module>
     </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+    </dependencies>
 
 </project>
