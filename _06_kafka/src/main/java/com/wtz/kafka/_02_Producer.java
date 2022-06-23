@@ -15,7 +15,7 @@ import java.util.Properties;
  */
 public class _02_Producer {
 
-    private static final String BROKER_LIST = "kudu1:9092";
+    private static final String BROKER_LIST = "flink01:9092,flink02:9092,flink03:9092";
 
     public static void main(String[] args) throws JSONException, InterruptedException {
 

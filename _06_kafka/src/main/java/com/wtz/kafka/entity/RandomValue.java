@@ -132,6 +132,8 @@ public class RandomValue {
         result.put("message", "this is a test message from: " + RandomValue.getChineseName());
         result.put("age", RandomValue.getNum(10, 70));
         result.put("address", RandomValue.getRoad());
+        result.put("_date", "2022-06-03 10:57:23");
+        result.put("_timestamp", "2022-06-14 10:57:05.000000");
         //        result.put("birthday", new Timestamp(System.currentTimeMillis()).toString());
         //        String tostring;
         //        if (i % 5 == 0) {
