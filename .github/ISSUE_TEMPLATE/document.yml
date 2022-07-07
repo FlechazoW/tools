@@ -15,7 +15,7 @@
 # limitations under the License.
 
 name: Documentation Related
-description: Suggest an improvement or report a bug for this project's Documentation
+description: Suggest an improvement or report a bug for this project's Documentation.
 title: "[Doc][Module Name] Documentation bug or improvement"
 labels: [ "document", "Waiting for reply" ]
 body:
@@ -57,6 +57,16 @@ body:
         We love to bring new contributors in.
       options:
         - label: Yes I am willing to submit a PR!
+
+  - type: checkboxes
+    attributes:
+      label: Code of Conduct
+      description: |
+        The Code of Conduct helps create a safe space for everyone. We require that everyone agrees to it.
+      options:
+        - label: |
+            I agree to follow this project's [Code of Conduct](https://www.apache.org/foundation/policies/conduct)
+          required: true
 
   - type: markdown
     attributes:

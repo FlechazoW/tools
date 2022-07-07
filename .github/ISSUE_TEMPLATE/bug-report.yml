@@ -17,7 +17,7 @@
 
 name: Bug report
 title: "[Bug] [Module Name] Bug title "
-description: Problems and issues with code of ChunJun
+description: Problems and issues with code of this project.
 labels: [ "bug", "Waiting for reply" ]
 body:
   - type: markdown
@@ -95,7 +95,7 @@ body:
     attributes:
       label: Version
       description: >
-        Which version of ChunJun are you running? We only accept bugs report from the LTS projects.
+        Which version of ChunJun are you using? We only accept bugs report from the LTS projects.
       options:
         - master
         - 1.12_release
@@ -112,6 +112,16 @@ body:
         We love to bring new contributors in.
       options:
         - label: Yes I am willing to submit a PR!
+
+  - type: checkboxes
+    attributes:
+      label: Code of Conduct
+      description: |
+        The Code of Conduct helps create a safe space for everyone. We require that everyone agrees to it.
+      options:
+        - label: |
+            I agree to follow this project's [Code of Conduct](https://www.apache.org/foundation/policies/conduct)
+          required: true
 
   - type: markdown
     attributes:

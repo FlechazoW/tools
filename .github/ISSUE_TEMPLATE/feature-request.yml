@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 name: Feature request
-description: Suggest an idea for this project
+description: Suggest an idea for this project.
 title: "[Feature][Module Name] Feature title"
 labels: [ "feature-request", "Waiting for reply" ]
 body:
@@ -63,6 +63,16 @@ body:
         DolphinScheduler is a totally community-driven project and we love to bring new contributors in.
       options:
         - label: Yes I am willing to submit a PR!
+
+  - type: checkboxes
+    attributes:
+      label: Code of Conduct
+      description: |
+        The Code of Conduct helps create a safe space for everyone. We require that everyone agrees to it.
+      options:
+        - label: |
+            I agree to follow this project's [Code of Conduct](https://www.apache.org/foundation/policies/conduct)
+          required: true
 
   - type: markdown
     attributes:
