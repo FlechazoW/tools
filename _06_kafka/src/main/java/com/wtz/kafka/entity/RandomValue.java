@@ -125,8 +125,13 @@ public class RandomValue {
         Timestamp timestamp = new Timestamp(currentTimeMillis);
         JSONObject result = new JSONObject();
         JSONObject data = new JSONObject();
-        result.put("id", i);
-        result.put("name", "[" + RandomValue.getChineseName() + "]");
+        result.put("id", 100 + i);
+        //result.put("name", "[" + RandomValue.getChineseName() + "]");
+        if (i % 2 == 0) {
+            result.put("name", "tiezhu");
+        } else {
+            result.put("name", "yuange");
+        }
         result.put("message", "vv");
         result.put("age", RandomValue.getNum(10, 70));
         result.put("address", RandomValue.getRoad());
