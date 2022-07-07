@@ -22,13 +22,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        
-        Before asking a question, make sure you have:
 
-        - Googled your question.
-        - Searched open and closed [GitHub issues](https://github.com/DTStack/chunjun/issues).
-        - Read documentation: [ChunJun Doc](https://dtstack.github.io/chunjun).
-        
         For better global communication, Please write in English.
 
         If you feel the description in English is not clear, then you can append description in Chinese, thanks!
@@ -44,7 +38,7 @@ body:
         - label: >
             I had googled my question but i didn't get any help.
         - label: >
-            I had read the documentation: [ChunJun Doc](https://dtstack.github.io/chunjun) but it didn't help me.
+            I had read the documentation: [ChunJun doc](https://dtstack.github.io/chunjun) but it didn't help me.
 
   - type: textarea
     attributes:
