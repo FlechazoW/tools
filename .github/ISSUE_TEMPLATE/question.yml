@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: Documentation Related
+name: Ask question
 description: Suggest an improvement or report a bug for this project's Documentation
 title: "[Question][Module Name] Ask for question"
 labels: [ "question", "Waiting for reply" ]
