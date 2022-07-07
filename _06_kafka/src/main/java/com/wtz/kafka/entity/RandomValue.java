@@ -27,6 +27,16 @@ public class RandomValue {
             "@gmail.com,@yahoo.com,@msn.com,@hotmail.com,@aol.com,@ask.com,@live.com,@qq.com,@0355.net,@163.com,@163.net,@263.net,@3721.net,@yeah.net,@googlemail.com,@126.com,@sina.com,@sohu.com,@yahoo.com.cn"
                     .split(",");
     private static final RandomDataGenerator randomDataGenerator = new RandomDataGenerator();
+    /**
+     * 返回手机号码
+     */
+    private static String[] telFirst =
+            "134,135,136,137,138,139,150,151,152,157,158,159,130,131,132,155,156,133,153"
+                    .split(",");
+    /**
+     * 返回中文姓名
+     */
+    private static String name_sex = "";
 
     public static int getNum(int start, int end) {
         return (int) (Math.random() * (end - start + 1) + start);
@@ -50,13 +60,6 @@ public class RandomValue {
         return sb.toString();
     }
 
-    /**
-     * 返回手机号码
-     */
-    private static String[] telFirst =
-            "134,135,136,137,138,139,150,151,152,157,158,159,130,131,132,155,156,133,153"
-                    .split(",");
-
     public static String getTel() {
         int index = getNum(0, telFirst.length - 1);
         String first = telFirst[index];
@@ -64,11 +67,6 @@ public class RandomValue {
         String third = String.valueOf(getNum(1, 9100) + 10000).substring(1);
         return first + second + third;
     }
-
-    /**
-     * 返回中文姓名
-     */
-    private static String name_sex = "";
 
     public static String getChineseName() {
         int index = getNum(0, firstName.length() - 1);
@@ -129,11 +127,30 @@ public class RandomValue {
         JSONObject data = new JSONObject();
         result.put("id", i);
         result.put("name", "[" + RandomValue.getChineseName() + "]");
-        result.put("message", "this is a test message from: " + RandomValue.getChineseName());
+        result.put("message", "vv");
         result.put("age", RandomValue.getNum(10, 70));
         result.put("address", RandomValue.getRoad());
-        result.put("_date", "2022-06-03 10:57:23");
-        result.put("_timestamp", "2022-06-14 10:57:05.000000");
+        result.put("date_str", "2022-06-03 10:57:23");
+        result.put("timestamp_str", "2022-06-14 10:57:05.000000");
+        result.put("number_str", "0.0");
+
+        result.put("tinyint_data", 2);
+        result.put("int_data", 2);
+        result.put("bigint_data", 2);
+        result.put("decimal_data", 2);
+        result.put("double_data", 2.2);
+        result.put("varchar_data", 2);
+        result.put("date_data", "2022-07-06");
+        result.put("time_data", "15:33:35");
+        result.put("timestamp_data", "2022-07-06 15:33:35");
+
+        // message:{"id":1,"DECIMAL_DATA":10,"VARCHAR_DATA":varchar_data,"DATE_DATA":2022-07-06 08:51:41,"TIMESTAMP_DATA":2022-07-06 08:51:41.000000,"age":18}
+
+        result.put("DECIMAL_DATA", 10);
+        result.put("VARCHAR_DATA", "varchar_data");
+        result.put("DATE_DATA", "2022-07-06 00:00:00");
+        result.put("TIMESTAMP_DATA", "2022-07-06 08:51:41.000000");
+
         //        result.put("birthday", new Timestamp(System.currentTimeMillis()).toString());
         //        String tostring;
         //        if (i % 5 == 0) {

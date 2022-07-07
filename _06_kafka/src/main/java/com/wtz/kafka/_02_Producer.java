@@ -15,14 +15,16 @@ import java.util.Properties;
  */
 public class _02_Producer {
 
-    private static final String BROKER_LIST = "flink01:9092,flink02:9092,flink03:9092";
+//    private static final String BROKER_LIST = "flink01:9092,flink02:9092,flink03:9092";
+        private static final String BROKER_LIST = "172.16.100.109:9092";
 
     public static void main(String[] args) throws JSONException, InterruptedException {
 
-        final String topic = args[0];
+        final String brokerList = args[0];
+        final String topic = args[1];
 
         Properties properties = new Properties();
-        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, BROKER_LIST);
+        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, brokerList);
         properties.put(
                 ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.put(

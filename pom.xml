@@ -19,6 +19,7 @@
         <module>_08_vertx_4</module>
         <module>_09_jdbc</module>
         <module>_10_guava</module>
+        <module>_11_ShardingSphere-JDBC</module>
     </modules>
 
     <properties>

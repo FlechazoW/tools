@@ -29,9 +29,10 @@ public class _01_Consumer {
     private static final String GROUP_ID = "*";
 
     public static void main(String[] args) throws Exception {
-        final String topic = args[0];
+        final String brokerList = args[0];
+        final String topic = args[1];
         Properties properties = new Properties();
-        properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, BROKER_LIST);
+        properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, brokerList);
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, GROUP_ID);
         properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, ByteArrayDeserializer.class.getName());
         properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ByteArrayDeserializer.class.getName());
