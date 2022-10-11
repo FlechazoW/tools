@@ -34,7 +34,7 @@ public class _02_Producer {
         int i = 1;
         while (i > -1) {
             sendData(producer, topic, RandomValue.buildJsonData(i++));
-            if (i > 10000) {
+            if (i > 1000) {
                 break;
             }
         }

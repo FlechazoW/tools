@@ -1,5 +1,6 @@
 package com.wtz.kudu;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.kudu.ColumnSchema;
 import org.apache.kudu.Schema;
@@ -28,29 +29,31 @@ import java.util.stream.Collectors;
  * @author tiezhu@dtstack.com
  * @since 2022/1/20 星期四
  */
+
+@Slf4j
 public class _01_KuduTest {
     public static void main(String[] args) throws KuduException {
         String kuduMaster = "172.16.100.109:7051";
-        String tableName = "tiezhuDemoOne";
+        String tableName = "tiezhu_test_two";
         KuduClient kuduClient = buildKuduClient(kuduMaster);
-        printTableServer(kuduClient);
-//        createKuduTable(tableName, kuduClient);
-        List<String> tablesList = kuduClient.getTablesList().getTablesList();
-        System.out.println("------------ table name ------------");
-        tablesList.forEach(System.out::println);
-        insertDataIntoTable(
-                10000,
-                1000,
-                tableName,
-                kuduClient
-        );
-        printDataFromTable(
-                tableName,
-                kuduClient,
-                "id", "name", "age"
-        );
+        //printTableServer(kuduClient);
+        createKuduTable(tableName, kuduClient);
+        //List<String> tablesList = kuduClient.getTablesList().getTablesList();
+        //System.out.println("------------ table name ------------");
+        //tablesList.forEach(System.out::println);
+        //insertDataIntoTable(
+        //        10000,
+        //        1000,
+        //        tableName,
+        //        kuduClient
+        //);
+        //printDataFromTable(
+        //        tableName,
+        //        kuduClient,
+        //        "id", "name"
+        //);
 
-//        deleteTable(tableName, kuduClient);
+        //deleteTable(tableName, kuduClient);
     }
 
     /**
@@ -92,17 +95,17 @@ public class _01_KuduTest {
     private static void createKuduTable(String tableName, KuduClient client) throws KuduException {
         // table exist
         if (client.tableExists(tableName)) {
-            throw new IllegalArgumentException(
-                    String.format("table [%s] already exist!", tableName)
-            );
+            log.warn("table {} already exist", tableName);
+            return;
         }
 
         // create table columns
         List<ColumnSchema> columnSchemas = new ArrayList<>();
 
-        columnSchemas.add(new ColumnSchema.ColumnSchemaBuilder("id", Type.STRING).key(true).build());
+        columnSchemas.add(new ColumnSchema.ColumnSchemaBuilder("id", Type.INT32).key(true).build());
         columnSchemas.add(new ColumnSchema.ColumnSchemaBuilder("name", Type.STRING).key(true).build());
-        columnSchemas.add(new ColumnSchema.ColumnSchemaBuilder("age", Type.INT32).key(true).build());
+        //columnSchemas.add(new ColumnSchema.ColumnSchemaBuilder("birth", Type.DATE).key(true).defaultValue(new Date(System.currentTimeMillis())).build());
+        //columnSchemas.add(new ColumnSchema.ColumnSchemaBuilder("age", Type.INT32).key(true).build());
 
         CreateTableOptions options = new CreateTableOptions();
         List<String> partitionList = new ArrayList<>();

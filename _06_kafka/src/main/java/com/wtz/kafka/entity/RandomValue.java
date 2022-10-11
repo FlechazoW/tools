@@ -125,14 +125,11 @@ public class RandomValue {
         Timestamp timestamp = new Timestamp(currentTimeMillis);
         JSONObject result = new JSONObject();
         JSONObject data = new JSONObject();
+        JSONObject after = new JSONObject();
         result.put("id", i);
         //result.put("name", "[" + RandomValue.getChineseName() + "]");
-        if (i % 2 == 0) {
-            result.put("name", "tiezhu");
-        } else {
-            result.put("name", "yuange");
-        }
-        result.put("message", "vv");
+        result.put("name", "[" + RandomValue.getEmail(1, 10) + "]");
+        //result.put("message", "vv");
         result.put("age", RandomValue.getNum(10, 70));
         result.put("address", RandomValue.getRoad());
         result.put("date_str", "2022-06-03 10:57:23");
@@ -144,17 +141,31 @@ public class RandomValue {
         result.put("bigint_data", 2);
         result.put("decimal_data", 2);
         result.put("double_data", 2.2);
-        result.put("varchar_data", 2);
-        result.put("date_data", "2022-07-06");
-        result.put("time_data", "15:33:35");
-        result.put("timestamp_data", "2022-07-06 15:33:35");
+        result.put("varchar_data", "2");
+        result.put("date_data", "2022-07-14");
+        result.put("time_data", "10:52:34");
+        result.put("timestamp_data", "2022-07-14 10:52:34");
 
         // message:{"id":1,"DECIMAL_DATA":10,"VARCHAR_DATA":varchar_data,"DATE_DATA":2022-07-06 08:51:41,"TIMESTAMP_DATA":2022-07-06 08:51:41.000000,"age":18}
 
-        result.put("DECIMAL_DATA", 10);
-        result.put("VARCHAR_DATA", "varchar_data");
-        result.put("DATE_DATA", "2022-07-06 00:00:00");
-        result.put("TIMESTAMP_DATA", "2022-07-06 08:51:41.000000");
+        result.put("DECIMAL_DATA", 0.0);
+        result.put("VARCHAR_DATA", "bb");
+        result.put("DATE_DATA", "2022-06-03 00:00:00");
+        result.put("DATE_DATA_TWO", "2022-06-03 00:00:00");
+        result.put("TIMESTAMP_DATA", "2022-06-03 10:57:23");
+        result.put("message.after.form_subtitle", "xxxxxx");
+        result.put("message.after.check_method", "a");
+        result.put("message.after.check_classification", "a");
+        result.put("message.after.check_result", "a");
+
+        after.put("form_subtitle", "xxxxxx");
+        after.put("check_method", "a");
+        after.put("check_classification", "a");
+        after.put("check_result", "a");
+
+        data.put("after", after);
+        result.put("message", data);
+
 
         //        result.put("birthday", new Timestamp(System.currentTimeMillis()).toString());
         //        String tostring;

@@ -10,7 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>_01_flink</module>
-        <module>_02_flink1_10</module>
+<!--        <module>_02_flink1_10</module>-->
         <module>_03_hadoop</module>
         <module>_04_jackson</module>
         <module>_05_java</module>
@@ -20,6 +20,9 @@
         <module>_09_jdbc</module>
         <module>_10_guava</module>
         <module>_11_ShardingSphere-JDBC</module>
+        <module>_12_Pulsar</module>
+        <module>_13_flink_1_15</module>
+        <module>_14_Inceptor</module>
     </modules>
 
     <properties>
@@ -39,7 +42,13 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-            <version>1.7.36</version>
+            <version>1.7.25</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
         </dependency>
     </dependencies>
 

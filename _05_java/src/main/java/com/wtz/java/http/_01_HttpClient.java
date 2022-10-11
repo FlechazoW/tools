@@ -20,8 +20,7 @@ public class _01_HttpClient {
 
     public static void main(String[] args) throws IOException {
         final ConnectionConfig connectionConfig = ConnectionConfig.custom().setCharset(Charset.defaultCharset()).build();
-        HttpClientBuilder.create().setDefaultConnectionConfig(connectionConfig).build();
-        try (CloseableHttpClient httpclient = HttpClientBuilder.create().setDefaultConnectionConfig(connectionConfig).build();) {
+        try (CloseableHttpClient httpclient = HttpClientBuilder.create().setDefaultConnectionConfig(connectionConfig).build()) {
             HttpPut httpPut = new HttpPut("http://172.16.21.49:8040/api/tiezhu/xiaohe_clas1/_stream_load?");
             httpPut.setHeader("Authorization", "Basic " + "cm9vdDo=");
             httpPut.setHeader("Content-Type", "text/html; charset=UTF-8");

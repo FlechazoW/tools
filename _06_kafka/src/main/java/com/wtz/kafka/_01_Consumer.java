@@ -1,5 +1,6 @@
 package com.wtz.kafka;
 
+import com.alibaba.fastjson.JSON;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -36,7 +37,7 @@ public class _01_Consumer {
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, GROUP_ID);
         properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, ByteArrayDeserializer.class.getName());
         properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ByteArrayDeserializer.class.getName());
-        properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+        properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
 
         KafkaConsumer<Object, Object> consumer = new KafkaConsumer<>(properties);
 
