@@ -1,6 +1,7 @@
 package com.wtz.flink;
 
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.table.api.EnvironmentSettings;
 import org.apache.flink.table.api.TableResult;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 
@@ -11,17 +12,29 @@ import java.io.InputStreamReader;
 import java.util.Objects;
 
 public class _02_FlinkSQL {
-    public static void main(String[] args) throws IOException {
+
+    public static void main(String[] args) throws Exception {
         // 构建任务执行上下文环境
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        StreamTableEnvironment tEnv = StreamTableEnvironment.create(env);
 
+        EnvironmentSettings settings = EnvironmentSettings.newInstance()
+                .useBlinkPlanner()
+                .inStreamingMode()
+                .build();
+        StreamTableEnvironment tEnv = StreamTableEnvironment.create(env, settings);
 
-        String sql = readFile("mysql_print.sql");
+        String create_mysql_table = readFile("test_one_mysql.sql");
 
-        TableResult tableResult = tEnv.executeSql(sql);
+        String create_print_table = readFile("print_table.sql");
 
+        String insertSQL = readFile("insert_print.sql");
+
+        tEnv.executeSql(create_mysql_table);
+        tEnv.executeSql(create_print_table);
+        TableResult tableResult = tEnv.executeSql(insertSQL);
         tableResult.print();
+
+        env.execute();
     }
 
     private static String readFile(String fileName) throws IOException {

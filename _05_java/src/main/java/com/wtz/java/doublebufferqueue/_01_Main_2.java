@@ -1,19 +1,36 @@
 package com.wtz.java.doublebufferqueue;
 
+import lombok.NonNull;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.stream.Stream;
 
 /**
  * @author tiezhu@dtstack.com
  * @since 2022/2/8 星期二
  */
 public class _01_Main_2 {
+
+    private static final SimpleDateFormat SIMPLE_DATEFORMAT = new SimpleDateFormat("yyyy-MM-dd");
+
     public static void main(String[] args) throws InterruptedException {
         final long count = 450 * 10000L;
 
-        test1(count);// 975
-        test2(count);//1756
-        test3(count);
-
+        //test1(count);// 975
+        //test2(count);//1756
+        //test3(count);
+        //System.out.println(getFileLineNumberFromDir("/Users/wtz/conf_place/hadoop2/op/test"));
+        Date date = new Date(System.currentTimeMillis());
+        String format = SIMPLE_DATEFORMAT.format(date);
+        System.out.println(date);
+        System.out.println(Date.valueOf(format));
     }
 
     public static void test1(long count) throws InterruptedException {
@@ -95,5 +112,43 @@ public class _01_Main_2 {
         thread1.join();
 
         System.out.println(System.currentTimeMillis() - l);
+    }
+
+    /**
+     * return the line number of all files in the dirPath
+     *
+     * @param dirPath dirPath
+     * @return
+     */
+    public static Long getFileLineNumberFromDir(@NonNull String dirPath) {
+        File file = new File(dirPath);
+        long value;
+        if (file.isDirectory()) {
+            value = Arrays.stream(file.listFiles()).map(currFile -> {
+                if (currFile.isDirectory()) {
+                    return getFileLineNumberFromDir(currFile.getPath());
+                } else {
+                    return getFileLineNumber(currFile.getPath());
+                }
+            }).mapToLong(Long::longValue).sum();
+        } else {
+            value = getFileLineNumber(file.getPath());
+        }
+
+        return value;
+    }
+
+    /**
+     * return the line number of file
+     *
+     * @param filePath The file need be read
+     * @return
+     */
+    public static Long getFileLineNumber(@NonNull String filePath) {
+        try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
+            return lines.count();
+        } catch (IOException e) {
+            throw new RuntimeException(String.format("get file[%s] line error", filePath), e);
+        }
     }
 }

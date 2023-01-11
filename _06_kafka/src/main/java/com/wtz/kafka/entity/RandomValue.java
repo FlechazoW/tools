@@ -127,8 +127,8 @@ public class RandomValue {
         JSONObject data = new JSONObject();
         JSONObject after = new JSONObject();
         result.put("id", i);
-        //result.put("name", "[" + RandomValue.getChineseName() + "]");
-        result.put("name", "[" + RandomValue.getEmail(1, 10) + "]");
+        result.put("name", "[" + RandomValue.getChineseName() + "]");
+        //result.put("name", "[" + RandomValue.getEmail(1, 10) + "]");
         //result.put("message", "vv");
         result.put("age", RandomValue.getNum(10, 70));
         result.put("address", RandomValue.getRoad());
@@ -142,26 +142,36 @@ public class RandomValue {
         result.put("decimal_data", 2);
         result.put("double_data", 2.2);
         result.put("varchar_data", "2");
-        result.put("date_data", "2022-07-14");
-        result.put("time_data", "10:52:34");
-        result.put("timestamp_data", "2022-07-14 10:52:34");
+        result.put("date_data", "2022-11-22");
+        result.put("time_data", "16:22:03");
+        result.put("timestamp_data", "2022-11-22 16:22:03");
+        result.put("datetime_data", "2022-11-22 16:22:03");
+        result.put("real_date_data", "2022-11-17");
+        result.put("year_data", "2022");
+        //result.put("salary", "111.11");
+        result.put("decimal_val_one", "2.222");
+        result.put("decimal_val_two", "2.90000000000");
+        result.put("decimal_val_three", "23");
+        result.put("clob_val", "dd");
+        result.put("blob_val", "foo");
+        result.put("nclob_val", "dd");
+        result.put("名字", "名字" + i);
 
         // message:{"id":1,"DECIMAL_DATA":10,"VARCHAR_DATA":varchar_data,"DATE_DATA":2022-07-06 08:51:41,"TIMESTAMP_DATA":2022-07-06 08:51:41.000000,"age":18}
 
         result.put("DECIMAL_DATA", 0.0);
         result.put("VARCHAR_DATA", "bb");
-        result.put("DATE_DATA", "2022-06-03 00:00:00");
+        result.put("DATE_DATA", "2021-12-10");
+        result.put("TIME_DATA", "10:00:00");
+        result.put("DATETIME_DATA", "2021-12-10 00:00:00.000");
+        result.put("DATETIME2_DATA", "2021-12-10 12:10:16.1234567");
+        result.put("SMALLDATETIME_DATA", "2021-12-10 12:43:00");
         result.put("DATE_DATA_TWO", "2022-06-03 00:00:00");
-        result.put("TIMESTAMP_DATA", "2022-06-03 10:57:23");
+        result.put("TIMESTAMP_DATA", "2022-07-16 09:09:56");
         result.put("message.after.form_subtitle", "xxxxxx");
         result.put("message.after.check_method", "a");
         result.put("message.after.check_classification", "a");
         result.put("message.after.check_result", "a");
-
-        after.put("form_subtitle", "xxxxxx");
-        after.put("check_method", "a");
-        after.put("check_classification", "a");
-        after.put("check_result", "a");
 
         data.put("after", after);
         result.put("message", data);

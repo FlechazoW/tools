@@ -1,6 +1,5 @@
 package com.wtz.java.doublebufferqueue;
 
-import com.sun.istack.internal.NotNull;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.AbstractQueue;
@@ -96,7 +95,7 @@ public class _01_DoubleBufferQueue<T> extends AbstractQueue<T> implements Queue<
     }
 
     @Override
-    public boolean addAll(@NotNull Collection<? extends T> c) {
+    public boolean addAll(Collection<? extends T> c) {
         if (null == c) {
             throw new NullPointerException();
         }

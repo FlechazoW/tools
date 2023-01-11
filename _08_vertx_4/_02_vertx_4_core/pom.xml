@@ -14,7 +14,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <vertx.version>4.3.1</vertx.version>
+        <vertx.version>4.3.5</vertx.version>
         <jackson.version>2.9.6</jackson.version>
         <ojdbc.version>12.2.0.1</ojdbc.version>
     </properties>

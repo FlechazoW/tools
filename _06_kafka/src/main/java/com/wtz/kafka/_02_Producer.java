@@ -31,10 +31,10 @@ public class _02_Producer {
                 ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 
-        int i = 1;
+        int i = 0;
         while (i > -1) {
             sendData(producer, topic, RandomValue.buildJsonData(i++));
-            if (i > 1000) {
+            if (i > 100000) {
                 break;
             }
         }
@@ -52,6 +52,6 @@ public class _02_Producer {
                     }
                 });
         producer.flush();
-        Thread.sleep(100);
+        //Thread.sleep(100);
     }
 }

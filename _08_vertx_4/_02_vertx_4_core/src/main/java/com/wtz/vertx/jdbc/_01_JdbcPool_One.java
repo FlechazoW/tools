@@ -11,9 +11,7 @@ import io.vertx.sqlclient.Row;
 import io.vertx.sqlclient.Tuple;
 
 import javax.sql.DataSource;
-import java.sql.Date;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -77,7 +75,7 @@ public class _01_JdbcPool_One {
         RdbSideTableInfo tableInfo = new RdbSideTableInfo();
         set(props, tableInfo);
 
-        tableInfo.setSqlCondition("SELECT \"ID\", \"_DATE\", \"_TIMESTAMP\", \"_STR\" FROM \"TIEZHU\".\"TEST_TWO\" WHERE \"ID\"= ?  AND \"_DATE\"= ?  AND \"_TIMESTAMP\"= ? ");
+        tableInfo.setSqlCondition("SELECT \"ID\", \"CLOB_VAL\", \"NCLOB_VAL\", \"BLOB_VAL\" FROM \"TIEZHU\".\"DIM_CLOB_BLOB\" WHERE \"ID\" = ? AND DBMS_LOB.COMPARE(\"CLOB_VAL\", TO_CLOB(?)) = 0 AND DBMS_LOB.INSTR(\"BLOB_VAL\", UTL_RAW.CAST_TO_RAW(?), 1, 1) > 0");
 
         JsonObject entries = JsonObject.mapFrom(tableInfo);
 
@@ -88,8 +86,8 @@ public class _01_JdbcPool_One {
         JDBCPool pool = JDBCPool.pool(vertx, source);
         List<Object> list = new LinkedList<>();
         list.add(1);
-        list.add(Date.valueOf("2022-06-03"));
-        list.add(Timestamp.valueOf("2022-06-14 10:57:05.000000"));
+        list.add("dd");
+        list.add("foo");
 
         Tuple tuple = Tuple.tuple();
         for (Object o : list) {
@@ -101,7 +99,9 @@ public class _01_JdbcPool_One {
                 .onFailure(System.out::println)
                 .onSuccess(result -> {
                     for (Row row : result) {
-                        System.out.println(row.getString("_STR"));
+                        for (int i = 0; i < row.size(); i++) {
+                            System.out.println(row.getValue(i));
+                        }
                     }
                 });
     }

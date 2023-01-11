@@ -31,7 +31,7 @@ public class _04_FromRangePort {
                     throw new RuntimeException("Invalid port configuration. Port must be between 0" +
                             "and 65535, but was " + start + ".");
                 }
-                final int end = Integer.parseInt(range.substring(dashIdx + 1, range.length()));
+                final int end = Integer.parseInt(range.substring(dashIdx + 1));
                 if (!isValidHostPort(end)) {
                     throw new RuntimeException("Invalid port configuration. Port must be between 0" +
                             "and 65535, but was " + end + ".");
