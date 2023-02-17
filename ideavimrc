@@ -1,0 +1,243 @@
+" ================================================================================================
+" = Extensions =====================================
+" ================================================================================================
+Plug 'tpope/vim-surround'
+Plug 'preservim/nerdtree'
+
+" ================================================================================================
+" = Basic settings =====================================
+" ================================================================================================
+# set clipboard+=unnamed
+set ignorecase
+set scrolloff=30
+set history=200
+set easymotion
+
+set number
+set relativenumber
+
+set incsearch
+set hlsearch
+set smartcase
+
+set keep-english-in-normal
+
+inoremap <C-d> <Delete>
+inoremap <C-b> <Backspace>
+
+inoremap jj <ESC>
+" ================================================================================================
+" = Ctrl开头 ====================================
+" ================================================================================================
+" 可视化模式下，选中行可以上下移动
+vmap <C-j> <action>(MoveLineDown)
+vmap <C-k> <action>(MoveLineUp)
+
+" 切换spliter
+nmap <C-h> <action>(PrevSplitter)
+nmap <C-l> <action>(NextSplitter)
+" 切换tab
+nmap <C-j> <action>(PreviousTab)
+nmap <C-k> <action>(NextTab)
+
+nmap L g_
+nmap H ^
+
+" ================================================================================================
+" = No Leader Keymaps =====================================
+" ================================================================================================
+" 寻找下一个错误
+nmap ge <action>(GotoNextError)
+" 回到上一个错误
+nmap gp <action>(GotoPreviousError)
+" 进入测试方法
+nmap gt <action>(GotoTest)
+" 回到函数方法上
+nmap gm <action>(MethodUp)
+" 寻找接口实现的
+nmap gi <action>(GotoImplementation)
+" 寻找函数使用的地方
+nmap gd <action>(GotoDeclaration)
+" 后退
+nmap gb <action>(Back)
+" 前进
+nmap gf <action>(Forward)
+" 回到上一次修改的地方
+nmap ga '.
+" 查找使用过的地方
+nmap gu <action>(FindUsages)
+
+" bookmark in whole program
+nmap ma <action>(ToggleBookmark)
+nmap ms mS
+nmap 's 'S
+nmap md mD
+nmap 'd 'D
+nmap mf mF
+nmap 'f 'F
+
+nmap L <action>(NextTab)
+nmap H <action>(PreviousTab)
+
+" ================================================================================================
+" = Leader Keymaps =====================================
+" ================================================================================================
+nmap <SPACE> <Nop>
+let mapleader=" "
+let g:mapleader=" "
+set timeoutlen=2000
+
+" 格式化代码
+nmap <leader>fm <action>(ReformatCode) \| <action>(OptimizeImports)
+
+" lsp: 重命名
+nmap <leader>lr <action>(RenameElement)
+" 展示目的
+nmap <leader>li <action>(ShowIntentionActions)
+" 展示错误提示
+nmap <leader>le <action>(ShowErrorDescription)
+" 查看文件的structure
+nmap <leader>ls <action>(FileStructurePopup)
+" 查看参数
+nmap <leader>lp <action>(ParameterInfo)
+" 查看类型
+nmap <leader>lt <action>(ExpressionTypeInfo)
+" 查看java doc 一般用来查看数据类型
+nmap <leader>lj <action>(QuickJavaDoc)
+" 代码包裹一层
+vmap <leader>lw <action>(SurroundWith)
+" 代码去掉包裹
+vmap <leader>lu <action>(Unwrap)
+
+" s开头还没用
+
+" 关闭搜索高亮
+nmap <leader>nh :nohlsearch<CR>
+
+" 快速关闭当前窗口
+nmap <leader>c :q!<CR>
+
+" 打开project目录
+nmap <leader>e :NERDTree<CR>
+" 关闭project目录
+nmap <leader>E :NERDTreeClose<CR>
+
+" 搜索全局
+nmap <leader>fg <action>(FindInPath)
+" ================================================================================================
+" 👻👻👻 Which-Key 👻👻👻
+" ================================================================================================
+set which-key
+set notimeout
+
+" d: diff
+nmap <leader>dd <action>(Vcs.ShowTabbedFileHistory)
+
+" f: Find/Format ⭐️
+let g:WhichKeyDesc_FindOrFormat = "<leader>f FindOrFormat"
+let g:WhichKeyDesc_FindOrFormat_FindFile = "<leader>ff FindFile"
+nmap <leader>ff <action>(GotoFile)
+
+let g:WhichKeyDesc_FindOrFormat_FindFileLocation = "<leader>fl FindFileLocation"
+nmap <leader>fl <action>(SelectInProjectView)
+
+let g:WhichKeyDesc_FindOrFormat_FindText = "<leader>ft FindText"
+nmap <leader>ft <action>(FindInPath)
+
+let g:WhichKeyDesc_FindOrFormat_Commands = "<leader>fc Commands"
+nmap <leader>fc <action>(GotoAction)
+
+let g:WhichKeyDesc_FindOrFormat_OpenedProject = "<leader>fp OpenedProject"
+nmap <leader>fp <action>(OpenProjectWindows)
+
+let g:WhichKeyDesc_FindOrFormat_Format = "<leader>fm Format"
+nmap <leader>fm <action>(ReformatCode) \| <action>(OptimizeImports)
+
+" g: Git ⭐️
+let g:WhichKeyDesc_Git = "<leader>g Git"
+let g:WhichKeyDesc_Git_RollbackHunk = "<leader>gr RollbackHunk"
+nmap <leader>gr :action Vcs.RollbackChangedLines<CR>
+
+" i: Insert ⭐️
+let g:WhichKeyDesc_InsertAfterBrackets = "<leader>i InsertAfterBrackets"
+nmap <leader>i f(a
+
+" j: add Semicolon and goto nextline⭐️
+let g:WhichKeyDesc_InsertSemicolon = "<leader>j InsertSemicolon"
+nmap <leader>j A;<ESC>o
+
+" l: lsp: Language server protocol (align with neovim)⭐️
+let g:WhichKeyDesc_LSP = "<leader>l LSP"
+let g:WhichKeyDesc_LSP_Rename = "<leader>lr Rename"
+nmap <leader>lr <action>(RenameElement)
+
+
+" n: No ⭐️
+let g:WhichKeyDesc_No_Highlight = "<leader>nl NoHighlight"
+nmap <leader>nl :nohlsearch<CR>
+
+
+" s: Show ⭐️
+let g:WhichKeyDesc_Show = "<leader>s Show"
+let g:WhichKeyDesc_Show_FileStructure = "<leader>ss ShowFileStructure"
+nmap <leader>ss <action>(FileStructurePopup)
+let g:WhichKeyDesc_Show_Bookmarks = "<leader>sb ShowBookmarks"
+nmap <leader>sb <action>(ShowBookmarks)
+let g:WhichKeyDesc_Show_ParameterInfo = "<leader>sb ShowParameterInfo"
+nmap <leader>sp <action>(ParameterInfo)
+
+" r: Run/Re ⭐️
+let g:WhichKeyDesc_RunOrRe = "<leader>r RunOrRe"
+let g:WhichKeyDesc_RunOrRe_ReRun = "<leader>rr ReRun"
+nmap <leader>rr <action>(Rerun)
+let g:WhichKeyDesc_RunOrRe_ReRunTests = "<leader>rt ReRunTests"
+nmap <leader>rt <action>(RerunTests)
+let g:WhichKeyDesc_RunOrRe_Rename = "<leader>rn Rename"
+map <leader>rn <action>(RenameElement)
+
+" w: Window ⭐️
+let g:WhichKeyDesc_Windows = "<leader>w Windows"
+let g:WhichKeyDesc_Windows_maximize = "<leader>wo maximize"
+nmap <leader>wo <action>(UnsplitAll) \| <action>(HideAllWindows)
+let g:WhichKeyDesc_Windows_splitWindowVertically = "<leader>wl splitWindowVertically"
+nmap <leader>wl <action>(Macro.SplitVertically)
+let g:WhichKeyDesc_Windows_closeActiveWindow = "<leader>wc closeActiveWindow"
+nmap <leader>wc <c-w>c
+
+" ================================================================================================
+" = w开头，窗口相关====================================
+" ================================================================================================
+" 关闭所有窗口 ️
+nmap <leader>wa <action>(CloseAllEditors)
+" 关闭除了激活窗口以外的窗口
+nmap <leader>wo <action>(CloseAllEditorsButActive)
+" 窗口最大化，并且隐藏其他窗口
+nmap <leader>wm <action>(UnsplitAll) \| <action>(HideAllWindows)
+" 分离出一个竖直的窗口
+nmap <leader>wv <action>(SplitVertically)
+" 分离出一个水平的窗口
+nmap <leader>wh <action>(SplitHorizontally)
+
+" z: zip(fold) ⭐️
+let g:WhichKeyDesc_Zip = "<leader>z Zip"
+let g:WhichKeyDesc_Zip_unZipAll = "<leader>zo unZipAll"
+nmap <leader>zo <action>(ExpandAllRegions)
+let g:WhichKeyDesc_Zip_ZipAll = "<leader>zc ZipAll"
+nmap <leader>zc <action>(CollapseAllRegions)
+
+" c: Close ⭐️;
+let g:WhichKeyDesc_CloseBuffer = "<leader>c CloseBuffer"
+nmap <leader>c :q!<CR>
+
+" e: Toggle Explorer ⭐️
+let g:WhichKeyDesc_ToggleExplorerOrExtract = "<leader>e ToggleExplorer"
+nmap <leader>e <action>(ActivateProjectToolWindow)
+" e: Extract
+" extract method/function
+vmap <leader>em <action>(ExtractMethod)
+" extract constant
+vmap <leader>ec <action>(IntroduceConstant)
+" extract field
+vmap <leader>ef <action>(IntroduceField)
+" extract variable
+vmap <leader>ev <action>(IntroduceVariable)
