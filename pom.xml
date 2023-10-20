@@ -22,6 +22,7 @@
         <module>_11_ShardingSphere-JDBC</module>
         <module>_12_Pulsar</module>
         <module>_13_flink_1_15</module>
+        <module>_15_LiteFlow</module>
 <!--        <module>_14_Inceptor</module>-->
     </modules>
 

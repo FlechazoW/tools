@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.Arrays;
@@ -37,7 +38,7 @@ public class _01_Consumer {
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, GROUP_ID);
         properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, ByteArrayDeserializer.class.getName());
         properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ByteArrayDeserializer.class.getName());
-        properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
+        properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 
         KafkaConsumer<Object, Object> consumer = new KafkaConsumer<>(properties);
 
@@ -48,7 +49,7 @@ public class _01_Consumer {
             for (ConsumerRecord<Object, Object> next : records) {
                 Object value = next.value();
                 if (value instanceof byte[]) {
-                    System.out.println(new String((byte[]) value, StandardCharsets.UTF_8));
+                    System.out.println(new String((byte[]) value, StandardCharsets.ISO_8859_1));
 //                    System.out.println(new String((byte[]) value, StandardCharsets.ISO_8859_1));
 //                    System.out.println(new String((byte[]) value, StandardCharsets.US_ASCII));
 //                    System.out.println(next);
